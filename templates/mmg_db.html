@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block container %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th><a href='/mmg/by_index'>ID</a></th>
+            <th><a href='/mmg/by_date'>StudyDate</a></th>
+            <th><a href="/mmg/by_birth">BirthDate</a></th>
+            <th><a href="/mmg/by_index"> Modality</a></th>
+            <th><a href='/mmg/by_pectorals'>Pectoral</a></th>
+            <th><a href='/mmg/by_pectorals'>Nipple</a></th>
+            <th><a href='/mmg/by_status'>Status</a></th>
+        <tr>
+        </thead>
+        <tbody>
+        {% for i in mmg_files %}
+
+        <tr>
+            <td><a href='/mmg_viewer/{{i[0]}}/image'>{{ i[0] }}</a></td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2] }}</td>
+            <td>{{ i[3] }}</td>
+
+             <td>{{ i[4] }}</td>
+            <td>{{ i[7] }}</td>
+            {% if i[6] == 'bad' %}
+            <td bgcolor="ff0000"><a href='/mmg_viewer/{{i[0]}}/image'>{{ i[6] }}</a></td>
+            {%else %}
+            <td bgcolor="00ff00"><a href='/mmg_viewer/{{i[0]}}/image'>{{ i[6] }}</a></td>
+            {%endif%}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <div class="container mt-4 p-3">
+                <div class="card m-3 p-3">
+                    <div class="row">
+                        <div class="col" align="left">
+                            <a href='/' class="btn btn-outline-primary btn-lg"> back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
