@@ -3,8 +3,15 @@
 
 {% block container %}
 
+   <div class="'card p-3 m-0 align='center" style="font-weight: bold; font-family: OpenSans; color:#FF0000">
+                <h5 align = 'center'> ...to display pictures - click the ID lines in the table below...  </h5>
 
-    <table class="table">
+            </div>
+
+
+
+
+    <table class="table" style="font-weight: bold; font-family: OpenSans">
         <thead>
         <tr>
             <th><a href='/flg/by_index'>ID</a></th>
@@ -14,7 +21,9 @@
             <th><a href='/flg/by_rotation'>Rotation</a></th>
             <th><a href='/flg/by_cross'>Shoulder</a></th>
            <th><a href='/flg/by_status'>Breath</a></th>
+             <th><a href='/flg/by_indea'>CTI</a></th>
             <th><a href='/flg/by_indea'>Status</a></th>
+
         <tr>
         </thead>
         <tbody>
@@ -22,17 +31,19 @@
 
         <tr>
             <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[0] }}</a></td>
-            <td>{{ i[1] }}</td>
-            <td>{{ i[2] }}</td>
-            <td>{{ i[3] }}</td>
-            <td>{{ i[4] }}</td>
-            <td>{{ i[5] }}</td>
-             <td>{{ i[6] }}</td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[1] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[2] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[3] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[4] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[5] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[6] }}</a></td>
+            <td><a href='/flg_viewer/{{i[0]}}/image'>{{ i[10] }}</a></td>
             {% if i[7] == 'bad' %}
             <td bgcolor="ff0000"><a href='/flg_viewer/{{i[0]}}/image'>{{ i[7] }}</a></td>
             {%else %}
             <td bgcolor="00ff00"><a href='/flg_viewer/{{i[0]}}/image'>{{ i[7] }}</a></td>
             {%endif%}
+
         </tr>
         {% endfor %}
         </tbody>

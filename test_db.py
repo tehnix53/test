@@ -2,15 +2,16 @@ import pandas as pd
 
 flg_files = \
     [{'id': 1, 'study_date': '21.01.2020', 'birth_date': '11.01.1989', 'cut_border': 'pass', 'rotation': 'pass',
-      'r_koef': '12,36%', 'cross_shoulder': 'pass', 'cross_shoulder_region': "not", "breath": 'norm'},
+      'r_koef': '12,36%', 'cross_shoulder': 'pass', 'cross_shoulder_region': "not", "breath": 'norm', 'cti': '0.42'},
+
      {'id': 2, 'study_date': '22.01.2020', 'birth_date': '11.02.1989', 'cut_border': 'pass', 'rotation': 'pass',
-      'r_koef': '16,85%', 'cross_shoulder': 'fail', 'cross_shoulder_region': "L, R", 'breath': 'norm'},
+      'r_koef': '16,85%', 'cross_shoulder': 'fail', 'cross_shoulder_region': "L, R", 'breath': 'norm', 'cti': '0.39'},
 
      {'id': 3, 'study_date': '23.01.2020', 'birth_date': '11.03.1989', 'cut_border': 'pass', 'rotation': 'fail',
-      'r_koef': '38,21%', 'cross_shoulder': 'pass', 'cross_shoulder_region': 'not', 'breath': 'norm'},
+      'r_koef': '38,21%', 'cross_shoulder': 'pass', 'cross_shoulder_region': 'not', 'breath': 'norm', 'cti': '0.47'},
 
      {'id': 4, 'study_date': '24.01.2020', 'birth_date': '11.04.1989', 'cut_border': 'pass', 'rotation': 'fail',
-      'r_koef': '21,71%', 'cross_shoulder': 'fail', 'cross_shoulder_region': 'L, R', 'breath': 'norm'}
+      'r_koef': '21,71%', 'cross_shoulder': 'fail', 'cross_shoulder_region': 'L, R', 'breath': 'norm', 'cti': '0.43'}
 
      ]
 
@@ -52,7 +53,7 @@ data['breath'] = [i['breath'] for i in flg_files]
 data['status'] = [i['status'] for i in flg_files]
 data['r_koef'] = [i['r_koef'] for i in flg_files]
 data['cross_shoulder_region'] = [i['cross_shoulder_region'] for i in flg_files]
+data['cti'] = [i['cti'] for i in flg_files]
 
 by_status = data.sort_values(['status']).values
 by_id = data.sort_values(['id']).values
-

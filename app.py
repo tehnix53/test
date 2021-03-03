@@ -52,7 +52,32 @@ def flg_worklist(sorted_by):
 
 @app.route('/info')
 def info():
-    return render_template('info.html')
+    return render_template('language_choice.html')
+
+
+@app.route('/dev_language_choice')
+def dev_lang():
+    return render_template('dev_lang_choice.html')
+
+
+@app.route('/info_en')
+def info_en():
+    return render_template('info_en.html')
+
+
+@app.route('/info_ru')
+def info_ru():
+    return render_template('info_ru.html')
+
+
+@app.route('/dev_ru')
+def dev_ru():
+    return render_template('dev_ru.html')
+
+
+@app.route('/dev_en')
+def dev_en():
+    return render_template('dev_en.html')
 
 
 @app.route('/mmg_viewer/<id>/<mode>')
@@ -76,18 +101,15 @@ def m_viewer(id, mode):
 def viewer(id, mode):
     if mode == 'image':
         pass
-
     elif mode == 'lungs':
         pass
-
     elif mode == 'clavicles':
         pass
-
     elif mode == 'shoulder':
         pass
-
     elif mode == 'breath':
-
+        pass
+    elif mode == 'heart':
         pass
 
     cut_region = data.loc[data.id == int(id)]['cut_border'].values[0]
@@ -95,10 +117,11 @@ def viewer(id, mode):
     cross_region = data.loc[data.id == int(id)]['cross_shoulder_region'].values[0]
     deep = data.loc[data.id == int(id)]['breath'].values[0]
     rotation = data.loc[data.id == int(id)]['rotation'].values[0]
+    cti = data.loc[data.id == int(id)]['cti'].values[0]
 
     return render_template('flg_viewer.html', id=id, mode=mode, r_koef=r_koef,
                            cut_region=cut_region, cross_region=cross_region,
-                           deep=deep, rotation=rotation)
+                           deep=deep, rotation=rotation, cti=cti)
 
 
 # app.run('127.0.0.1', 8000, debug=True)

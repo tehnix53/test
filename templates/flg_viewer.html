@@ -3,27 +3,39 @@
 
 {% block container %}
 
-<div class="container mt-4">
+   <div class="'card p-3 m-0 align='center" style="font-weight: bold; font-family: OpenSans; color:#FF0000">
+                <h5 align = 'center'> ...to display segmentation area - click the buttons on the right...  </h5>
+
+            </div>
+
+
+
+<div class="container mt-3">
 
     <div class='row'>
         <div class='col-1'></div>
 
         <div class="col-6">
             {% if mode == "image"%}
-            <img src="/static/images/{{id}}.png" align="center" style="width:400px;height:430px;" \
+            <img src="/static/images/{{id}}.png" align="center" style="width:480px;height:480px;" \
                  class="img-fluid">
             {% elif mode == "lungs" %}
-            <img src="/static/lungs/temp/{{id}}.png" align="center" style="width:400px;height:430px;" \
+            <img src="/static/lungs/temp/{{id}}.png" align="center" style="width:480px;height:480px;" \
                  class="img-fluid">
             {% elif mode == "shoulder" %}
-            <img src="/static/shoulder/temp/{{id}}.png" align="center" style="width:400px;height:430px;" \
+            <img src="/static/shoulder/temp/{{id}}.png" align="center" style="width:480px;height:480px;" \
                  class="img-fluid">
             {% elif mode == "clavicles" %}
-            <img src="/static/clavicles/temp/{{id}}.png" align="center" style="width:400px;height:430px;" \
+            <img src="/static/clavicles/temp/{{id}}.png" align="center" style="width:480px;height:480px;" \
                  class="img-fluid">
 
             {% elif mode == "breath" %}
-            <img src="/static/edge/temp/{{id}}.png" align="center" style="width:400px;height:430px;" \
+            <img src="/static/edge/temp/{{id}}.png" align="center" style="width:480px;height:480px;" \
+                 class="img-fluid">
+
+
+            {% elif mode == "heart" %}
+            <img src="/static/heart/temp/{{id}}.png" align="center" style="width:480px;height:480px;" \
                  class="img-fluid">
 
             {%endif%}
@@ -32,40 +44,40 @@
 
         <div class="col-4">
 
-            <div class="card m-2 p-2">
+            <div class="card m-1 p-1">
                 <div class="row">
-                    <div class='col'>
-                        <a href='/flg_viewer/{{id}}/image' class="btn btn-outline-primary btn-lg">Origin</a>
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/image' class="btn btn-outline-primary">Origin</a>
                     </div>
 
-                    <div class='col'>
+                    <div class='col-7'>
                         <div class="alert alert-primary" role="alert">ID: {{id}}</div>
                     </div>
 
                 </div>
             </div>
-            <div class="card m-2 p-2">
+            <div class="card m-1 p-1">
                 <div class="row">
-                    <div class='col'>
-                        <a href='/flg_viewer/{{id}}/lungs' class="btn btn-primary btn-lg">Lungs</a>
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/lungs' class="btn btn-primary">Lungs</a>
                     </div>
-                    <div class='col'>
+                    <div class='col-7'>
                         <div class="alert alert-success" role="alert">Cut: {{cut_region}}</div>
                     </div>
                 </div>
             </div>
 
-            <div class="card m-2 p-2">
+            <div class="card m-1 p-1">
                 <div class="row">
-                    <div class='col'>
-                        <a href='/flg_viewer/{{id}}/clavicles' class="btn btn-primary btn-lg">Clavic</a>
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/clavicles' class="btn btn-primary">Clavic</a>
                     </div>
                     {% if rotation == "pass"%}
-                    <div class='col'>
+                    <div class='col-7'>
                         <div class="alert alert-success" role="alert">Rotate: {{r_koef}}</div>
                     </div>
                     {% else %}
-                    <div class='col'>
+                    <div class='col-7'>
                         <div class="alert alert-danger" role="alert">Rotate: {{r_koef}}</div>
                     </div>
 
@@ -76,12 +88,12 @@
                 </div>
             </div>
 
-            <div class="card m-2 p-2">
+            <div class="card m-1 p-1">
                 <div class="row">
-                    <div class='col'>
-                        <a href='/flg_viewer/{{id}}/shoulder' class="btn btn-primary btn-lg">Should</a>
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/shoulder' class="btn btn-primary">Should</a>
                     </div>
-                    <div class='col'>
+                    <div class='col-7'>
                         {% if cross_region == "not" %}
                         <div class="alert alert-success" role="alert">Cross: {{cross_region}}</div>
                         {% else %}
@@ -91,24 +103,36 @@
                 </div>
             </div>
 
-            <div class="card m-2 p-2">
+            <div class="card m-1 p-1">
                 <div class="row">
-                    <div class='col'>
-                        <a href='/flg_viewer/{{id}}/breath' class="btn btn-primary btn-lg">Breath</a>
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/breath' class="btn btn-primary">Breath</a>
                     </div>
-
-
-                    <div class='col'>
+                    <div class='col-7'>
                         <div class="alert alert-success" role="alert">Deep: {{deep}}</div>
                     </div>
                 </div>
 
             </div>
+
+             <div class="card m-1 p-1">
+                <div class="row">
+                    <div class='col-4'>
+                        <a href='/flg_viewer/{{id}}/heart' class="btn btn-primary">Heart</a>
+                    </div>
+                    <div class='col-7'>
+                        <div class="alert alert-success" role="alert">CTI: {{cti}}</div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
 
 
-        <div class="container mt-4 p-3">
-            <div class="card m-3 p-3">
+        <div class="container mt-4 p-1">
+            <div class="card m-1 p-1">
 
                 <div class="row">
                     <div class="col" align="left">
